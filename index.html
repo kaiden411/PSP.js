@@ -175,6 +175,13 @@
 			console.log("No secure context. Everything else will fail");
 		}
 
+		function getSelectedChannel() {
+			const channelOptions = document.getElementById('channelOptions');
+		      	const selectedChannel = channelOptions.querySelector('input[name="channel"]:checked');
+			console.log("selected channel " + selectedChannel);
+		      	return selectedChannel.value;
+		}
+
 		class PSU {
 			port;
 			refreshInterval;
@@ -573,20 +580,24 @@
 			}
 
 			requestStatus() {
-				this.writeSerial('MV?;MC?;V?;C?;MP?;P?;EX?;');
+				const selectedChannel = getSelectedChannel();
+				this.writeSerial('SEL ${selectedChannel};MV?;MC?;V?;C?;MP?;P?;EX?;');
 				this.readSerial();
 			}
 			
 			writeVoltage(voltage) {
-				this.writeSerial('SEL 1;V ' + voltage );
+				const selectedChannel = getSelectedChannel();
+				this.writeSerial('SEL ${selectedChannel};V ' + voltage );
 			}
 			
 			powerOn() {
-				this.writeSerial('SEL 1;EX 1');
+				const selectedChannel = getSelectedChannel();
+				this.writeSerial('SEL ${selectedChannel};EX 1');
 			}
 			
 			powerOff() {
-				this.writeSerial('SEL 1;EX 0');
+				const selectedChannel = getSelectedChannel();
+				this.writeSerial('SEL ${selectedChannel};EX 0');
 			}
 		}
 
