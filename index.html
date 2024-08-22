@@ -101,12 +101,12 @@
 	</p>
 	<form onsubmit="psu.setVoltage(document.getElementById('voltageInput').value); return false;">
 		<input type="text" name="voltage" id="voltageInput" value="12.00" class="connected">V
-		<div id="channelOptions">
-		      	<input type="radio" name="channel" value="1" id="channel1" class="connected"> 1
-		      	<input type="radio" name="channel" value="2" id="channel2" class="connected"> 2
-			<input type="radio" name="channel" value="3" id="channel3" class="connected"> 3
-		</div>
 		<input type="submit" value="Set" class="connected">
+		<div id="channelOptions">
+		      	<input type="radio" name="channel" value="1" id="channel1" class="connected" checked> CH 1
+		      	<input type="radio" name="channel" value="2" id="channel2" class="connected"> CH 2
+			<input type="radio" name="channel" value="3" id="channel3" class="connected"> CH 3
+		</div>
 	</form>
 	<table id="display" class="blurred">
 		<colgroup>
