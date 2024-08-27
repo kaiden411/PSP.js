@@ -580,23 +580,23 @@
 
 			requestStatus() {
 				const selectedChannel = getSelectedChannel();
-				this.writeSerial('SEL ' + selectedChannel + ';MV?;MC?;V?;C?;MP?;P?;EX?;');
+				this.writeSerial('SEL 1;MV?;MC?;V?;C?;MP?;P?;EX?;');
 				this.readSerial();
 			}
 			
 			writeVoltage(voltage) {
 				const selectedChannel = getSelectedChannel();
-				this.writeSerial('SEL ' + selectedChannel + ';V ' + voltage );
+				this.writeSerial('SEL 1;V ' + voltage );
 			}
 			
 			powerOn() {
 				const selectedChannel = getSelectedChannel();
-				this.writeSerial('SEL ' + selectedChannel + ';EX 1');
+				this.writeSerial('SEL 1;EX 1');
 			}
 			
 			powerOff() {
 				const selectedChannel = getSelectedChannel();
-				this.writeSerial('SEL ' + selectedChannel + ';EX 0');
+				this.writeSerial('SEL 1;EX 0');
 			}
 		}
 
